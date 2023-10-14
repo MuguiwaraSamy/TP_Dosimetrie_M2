@@ -8,7 +8,7 @@
 - Yannick Arnoud: yannick.arnoud@lpsc.in2p3.fr
 
 ### Données :
-- À partir du site du NIST, récupérer dans un fichier Excel les coefficients d'atténuation $\mu_{att}$ et d'absorption en énergie $\mu_{en}$ du PMMA (Polyméthyl Méthacrylate) en fonction de l'énergie des photons.
+- À partir du site du NIST, récupérer dans un fichier Excel les coefficients d'atténuation $\mu_{att}$ et d'absorption en énergie $\mu_{en}$ du PMMA (Polyméthyl Méthacrylate) en fonction de l'énergie des photons, ainsi que ca masse volumique.
 
 ### Travail à Réaliser :
 
@@ -16,7 +16,9 @@
 2. Ajuster ces points par un modèle linéaire et afficher sur le même graphe cette courbe d'ajustement. Commenter.
 3. Tester d'autres types d'ajustement. Au vu des graphiques obtenus, êtes-vous satisfaits du résultat ? Vous pouvez prendre comme référence d'une courbe au comportement « sain » celle affichée sur le site NIST.
 4. Essayer l'interpolation linéaire en échelle logarithmique et tracer là. Est-ce que vos résultats sont meilleurs ?
-5. Avec votre meilleur ajustement, trouver les valeurs $\mu_{att}$ et $\mu_{en}$ pour des énergies de faisceaux de photons de 20 keV, 140 keV, 6 MeV et 18 MeV.
+5. Le site internet de questions réponses **stackoverflow** propose une fonction d’ajustement qui a retenu notre attention. Qu’en pensez-vous ?
+https://stackoverflow.com/questions/29346292/logarithmic-interpolation-in-python
+6. Avec votre meilleur ajustement, trouver les valeurs $\mu_{att}$ et $\mu_{en}$ pour des énergies de faisceaux de photons de 20 keV, 140 keV, 6 MeV et 18 MeV.
 
 
 
