@@ -764,7 +764,7 @@ def compute_dose(mu_en : np.ndarray , rho: float, flux : float , mass : float , 
     np.ndarray
         The dose values
     """
-    return (energy * 1e6 * 1.602e-19 * mu_en * rho * flux) / mass
+    return (energy * 1e6 * 1.602e-19 * mu_en * flux) / mass
 
 # Calculate the dose for a given linear attenuation coefficient (mu_en_pred),
 # density (rho), flux, mass, and a set of energy values (newEnergy)
