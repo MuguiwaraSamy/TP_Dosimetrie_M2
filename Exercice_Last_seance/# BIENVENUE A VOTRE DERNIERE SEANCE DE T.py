@@ -106,7 +106,7 @@
 ################################################################################################################################
 # Question 6 : 
 # il se trouve que nous avons irradié des cellules voici les donné de survie de ces cellules
-# dans le fichier Data_Survival.xlsx
+# dans le fichier xlsx
 # importez les données et représentez les graphiquement
 # temps estimé : 5 minutes
 ################################################################################################################################
