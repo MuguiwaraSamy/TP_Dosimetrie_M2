@@ -19,7 +19,12 @@
 ################################################################################################################################
 
 
-''' VOTRE CODE ICI '''
+import numpy as np 
+import matplotlib.pyplot as plt
+import pandas as pd
+from scipy.optimize import curve_fit
+
+
 
 ################################################################################################################################
 # POUR CHAQUE QUESTION CREE UNE NOUVELLE FONCTION QUE TU APPELLERAS DANS LE MAIN
@@ -36,8 +41,16 @@
 # temps estimé : 5 minutes
 ################################################################################################################################
 
-
-''' VOTRE CODE ICI '''
+# def ImportData(path):
+#     df = pd.read_excel(path)
+    
+#     fichier_excel = {}
+#     for i in df.columns:
+#         print(i)
+#         fichier_excel[i] = df[i].values
+#     return fichier_excel
+    
+# Imp = ImportData("/Users/samy/Desktop/PhD/TP_Dosimetrie_M2/TP04/Data_Water.xlsx")
 
 
 ################################################################################################################################
@@ -48,17 +61,44 @@
 # temps estimé : 5 minutes
 ################################################################################################################################
 
+# for keys, values in Imp.items():
+#     if keys == "Energy":
+#         continue
+#     plt.plot(Imp["Energy"], values, label = keys)
+#     plt.xscale("log")
+#     plt.yscale("log")
+#     plt.xlabel("Energie (keV)")
+#     plt.ylabel("cm^2/g")
+#     plt.legend()
+# plt.show()
 
-''' VOTRE CODE ICI '''
+# ''' VOTRE CODE ICI '''
 
-################################################################################################################################
-# Question 2.2 : 
-# Faite une interpolation linéaire des données de la feuille de calcul pour 10kev  
-# Vous pouvez passer en espace log-log pour faire votre interpolation (log naturel) 
-# temps estimé : 10 minutes
-################################################################################################################################
+# ################################################################################################################################
+# # Question 2.2 : 
+# # Faite une interpolation linéaire des données de la feuille de calcul pour 10kev  
+# # Vous pouvez passer en espace log-log pour faire votre interpolation (log naturel) 
+# # temps estimé : 10 minutes
+# ################################################################################################################################
 
-''' VOTRE CODE ICI '''
+# inter_energy = 0.01
+# interp_value = {}
+
+# for keys, values in Imp.items():
+#     if keys == "Energy":
+#         continue
+#     temp_val = np.exp(np.interp(np.log(inter_energy), np.log(Imp["Energy"]), np.log(values)))
+#     interp_value[keys] = temp_val
+#     plt.plot(Imp["Energy"], values, label = keys)
+#     plt.scatter(inter_energy, temp_val, label = keys)
+#     plt.xscale("log")
+#     plt.yscale("log")
+#     plt.xlabel("Energie (keV)")
+#     plt.ylabel("cm^2/g")
+#     plt.legend()
+#     plt.show()
+    
+    
 
 
 ################################################################################################################################
@@ -111,6 +151,26 @@
 # temps estimé : 5 minutes
 ################################################################################################################################
 
+path = "/Users/samy/Desktop/PhD/TP_Dosimetrie_M2/Exercice_Last_seance/survie_gammatt.xlsx"
+
+df = pd.read_excel(path)
+print(df)
+dose = df["Dose (Gy)"].values
+s1 = df["Survie Expérience 1"].values
+
+def func(x, a, b):
+    return np.exp(-((a*x) + (b*x**2)))
+
+params, cov = curve_fit(func, dose, s1)
+lin = np.linspace(0, 8, 1000)
+plt.scatter(dose, s1)
+plt.plot(lin, func(lin,*params))
+plt.yscale("log")
+plt.show()
+
+print(params)
+
+
 
 ''' VOTRE CODE ICI '''  
 
@@ -123,3 +183,10 @@
     
     
 ''' VOTRE CODE ICI '''
+
+
+
+
+
+if __name__ == "__main__":
+    a=0
